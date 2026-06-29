@@ -1,0 +1,215 @@
+{
+  "canonical_metrics": {
+    "followers": {
+      "display_name": "Followers",
+      "description": "Total number of followers/fans",
+      "type": "count",
+      "category": "audience",
+      "format": "number"
+    },
+    "impressions": {
+      "display_name": "Impressions",
+      "description": "Total times content was displayed",
+      "type": "count",
+      "category": "reach",
+      "format": "number"
+    },
+    "reach": {
+      "display_name": "Reach",
+      "description": "Unique accounts/users who saw content",
+      "type": "count",
+      "category": "reach",
+      "format": "number"
+    },
+    "engagement": {
+      "display_name": "Engagement",
+      "description": "Total interactions (likes, comments, shares, saves)",
+      "type": "count",
+      "category": "engagement",
+      "format": "number"
+    },
+    "engagement_rate": {
+      "display_name": "Engagement Rate",
+      "description": "Engagement / Reach × 100",
+      "type": "percentage",
+      "category": "engagement",
+      "format": "percentage",
+      "derived": true
+    },
+    "profile_views": {
+      "display_name": "Profile Views",
+      "description": "Profile/Page visits",
+      "type": "count",
+      "category": "reach",
+      "format": "number"
+    },
+    "website_clicks": {
+      "display_name": "Website Clicks",
+      "description": "Clicks to external website",
+      "type": "count",
+      "category": "traffic",
+      "format": "number"
+    },
+    "video_views": {
+      "display_name": "Video Views",
+      "description": "Number of video plays",
+      "type": "count",
+      "category": "video",
+      "format": "number"
+    },
+    "watch_time_seconds": {
+      "display_name": "Watch Time",
+      "description": "Total watch time in seconds",
+      "type": "duration",
+      "category": "video",
+      "format": "duration"
+    },
+    "spend": {
+      "display_name": "Ad Spend",
+      "description": "Total advertising spend",
+      "type": "currency",
+      "category": "paid",
+      "format": "currency"
+    },
+    "cpm": {
+      "display_name": "CPM",
+      "description": "Cost per 1000 impressions",
+      "type": "currency",
+      "category": "paid",
+      "format": "currency",
+      "derived": true
+    },
+    "cpc": {
+      "display_name": "CPC",
+      "description": "Cost per click",
+      "type": "currency",
+      "category": "paid",
+      "format": "currency",
+      "derived": true
+    },
+    "ctr": {
+      "display_name": "CTR",
+      "description": "Click-through rate",
+      "type": "percentage",
+      "category": "paid",
+      "format": "percentage",
+      "derived": true
+    },
+    "roas": {
+      "display_name": "ROAS",
+      "description": "Return on ad spend",
+      "type": "ratio",
+      "category": "paid",
+      "format": "ratio",
+      "derived": true
+    }
+  },
+  "provider_mappings": {
+    "meta_facebook": {
+      "page_fans": {
+        "canonical": "followers",
+        "deprecated": true,
+        "deprecation_date": "2025-11-15",
+        "replacement": "followers_count from Page object",
+        "notes": "Use GET /{page-id}?fields=followers_count instead"
+      },
+      "page_followers_count": {
+        "canonical": "followers",
+        "deprecated": false
+      },
+      "page_impressions": {
+        "canonical": "impressions",
+        "deprecated": false
+      },
+      "page_impressions_unique": {
+        "canonical": "reach",
+        "deprecated": false
+      },
+      "page_post_engagements": {
+        "canonical": "engagement",
+        "deprecated": false
+      },
+      "page_views_total": {
+        "canonical": "page_views",
+        "deprecated": false
+      },
+      "page_video_views": {
+        "canonical": "video_views",
+        "deprecated": false
+      }
+    },
+    "meta_instagram": {
+      "impressions": {
+        "canonical": "impressions",
+        "deprecated": false
+      },
+      "reach": {
+        "canonical": "reach",
+        "deprecated": false
+      },
+      "profile_views": {
+        "canonical": "profile_views",
+        "deprecated": false
+      },
+      "follower_count": {
+        "canonical": "followers",
+        "deprecated": false
+      },
+      "website_clicks": {
+        "canonical": "website_clicks",
+        "deprecated": false
+      }
+    },
+    "youtube": {
+      "views": {
+        "canonical": "video_views",
+        "deprecated": false
+      },
+      "estimatedMinutesWatched": {
+        "canonical": "watch_time_minutes",
+        "deprecated": false
+      },
+      "averageViewDuration": {
+        "canonical": "average_view_duration",
+        "deprecated": false
+      },
+      "subscribersGained": {
+        "canonical": "followers_gained",
+        "deprecated": false
+      },
+      "subscribersLost": {
+        "canonical": "followers_lost",
+        "deprecated": false
+      }
+    }
+  },
+  "derived_calculations": {
+    "engagement_rate": {
+      "formula": "(likes + comments + shares + saves) / reach * 100",
+      "required": ["likes", "comments", "reach"],
+      "optional": ["shares", "saves"]
+    },
+    "average_view_percentage": {
+      "formula": "watch_time_seconds / (video_views * video_length_seconds) * 100",
+      "required": ["watch_time_seconds", "video_views", "video_length_seconds"],
+      "platform": "youtube"
+    },
+    "cpm": {
+      "formula": "(spend / impressions) * 1000",
+      "required": ["spend", "impressions"]
+    },
+    "cpc": {
+      "formula": "spend / clicks",
+      "required": ["spend", "clicks"]
+    },
+    "ctr": {
+      "formula": "clicks / impressions * 100",
+      "required": ["clicks", "impressions"]
+    },
+    "roas": {
+      "formula": "revenue / spend",
+      "required": ["revenue", "spend"]
+    }
+  }
+}
+

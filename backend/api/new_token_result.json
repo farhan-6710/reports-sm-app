@@ -1,0 +1,113 @@
+{
+    "token_check": {
+        "granted_permissions": [
+            "email",
+            "manage_fundraisers",
+            "read_insights",
+            "publish_video",
+            "catalog_management",
+            "private_computation_access",
+            "threads_business_basic",
+            "pages_manage_cta",
+            "pages_manage_instant_articles",
+            "pages_show_list",
+            "read_page_mailboxes",
+            "ads_management",
+            "ads_read",
+            "business_management",
+            "pages_messaging",
+            "pages_messaging_phone_number",
+            "pages_messaging_subscriptions",
+            "instagram_basic",
+            "instagram_manage_comments",
+            "instagram_manage_insights",
+            "instagram_content_publish",
+            "leads_retrieval",
+            "whatsapp_business_management",
+            "instagram_manage_messages",
+            "attribution_read",
+            "page_events",
+            "commerce_account_read_settings",
+            "commerce_account_manage_orders",
+            "commerce_account_read_orders",
+            "commerce_account_read_reports",
+            "pages_read_engagement",
+            "pages_manage_metadata",
+            "pages_read_user_content",
+            "pages_manage_ads",
+            "pages_manage_posts",
+            "pages_manage_engagement",
+            "whatsapp_business_messaging",
+            "instagram_shopping_tag_products",
+            "instagram_branded_content_brand",
+            "instagram_branded_content_creator",
+            "instagram_branded_content_ads_brand",
+            "instagram_manage_events",
+            "instagram_manage_upcoming_events",
+            "manage_app_solution",
+            "pages_utility_messaging",
+            "paid_marketing_messages",
+            "whatsapp_business_manage_events",
+            "instagram_creator_marketplace_discovery",
+            "facebook_creator_marketplace_discovery",
+            "instagram_manage_contents",
+            "facebook_branded_content_ads_brand",
+            "public_profile"
+        ]
+    },
+    "clients": {
+        "Sorshe": {
+            "status": "init",
+            "ig": "EXCEPTION: Instagram API Error: Account ID does not exist or is not accessible. Verify the Instagram Business Account ID.",
+            "fb": "EXCEPTION: Facebook API Error: (#10) This endpoint requires the 'pages_read_engagement' permission or the 'Page Public Content Access' feature or the 'Page Public Metadata Access' feature. Refer to https:\/\/developers.facebook.com\/docs\/apps\/review\/login-permissions#manage-pages, https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#reference-PAGES_ACCESS and https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#page-public-metadata-access for details.",
+            "ad": "EXCEPTION: Facebook API Error: (#200) Ad account owner has NOT grant ads_management or ads_read permission, refer to https:\/\/developers.facebook.com\/docs\/marketing-api\/get-started\/authorization\/#permissions-and-features for details."
+        },
+        "OTC": {
+            "status": "init",
+            "ig": "SUCCESS: otc.kompally",
+            "fb": "SUCCESS: OTC Kompally",
+            "ad": "EXCEPTION: Facebook API Error: (#200) Ad account owner has NOT grant ads_management or ads_read permission, refer to https:\/\/developers.facebook.com\/docs\/marketing-api\/get-started\/authorization\/#permissions-and-features for details."
+        },
+        "Veda Hospitals": {
+            "status": "init",
+            "ig": "EXCEPTION: Instagram API Error: Account ID does not exist or is not accessible. Verify the Instagram Business Account ID.",
+            "fb": "EXCEPTION: Facebook API Error: (#10) This endpoint requires the 'pages_read_engagement' permission or the 'Page Public Content Access' feature or the 'Page Public Metadata Access' feature. Refer to https:\/\/developers.facebook.com\/docs\/apps\/review\/login-permissions#manage-pages, https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#reference-PAGES_ACCESS and https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#page-public-metadata-access for details.",
+            "ad": "EXCEPTION: Facebook API Error: (#200) Ad account owner has NOT grant ads_management or ads_read permission, refer to https:\/\/developers.facebook.com\/docs\/marketing-api\/get-started\/authorization\/#permissions-and-features for details."
+        },
+        "Bikanervala": {
+            "status": "init",
+            "ig": "SUCCESS: bikanervala_hyderabad",
+            "fb": "EXCEPTION: Facebook API Error: (#10) This endpoint requires the 'pages_read_engagement' permission or the 'Page Public Content Access' feature or the 'Page Public Metadata Access' feature. Refer to https:\/\/developers.facebook.com\/docs\/apps\/review\/login-permissions#manage-pages, https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#reference-PAGES_ACCESS and https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#page-public-metadata-access for details.",
+            "ad": "EXCEPTION: Facebook API Error: (#200) Ad account owner has NOT grant ads_management or ads_read permission, refer to https:\/\/developers.facebook.com\/docs\/marketing-api\/get-started\/authorization\/#permissions-and-features for details."
+        },
+        "Tales Of Telugu": {
+            "status": "init",
+            "ig": "EXCEPTION: Instagram API Error: Account ID does not exist or is not accessible. Verify the Instagram Business Account ID.",
+            "fb": "EXCEPTION: Facebook API Error: (#10) This endpoint requires the 'pages_read_engagement' permission or the 'Page Public Content Access' feature or the 'Page Public Metadata Access' feature. Refer to https:\/\/developers.facebook.com\/docs\/apps\/review\/login-permissions#manage-pages, https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#reference-PAGES_ACCESS and https:\/\/developers.facebook.com\/docs\/apps\/review\/feature#page-public-metadata-access for details.",
+            "ad": "EXCEPTION: Facebook API Error: (#200) Ad account owner has NOT grant ads_management or ads_read permission, refer to https:\/\/developers.facebook.com\/docs\/marketing-api\/get-started\/authorization\/#permissions-and-features for details."
+        },
+        "Armario Pro": {
+            "status": "init",
+            "ig": "SUCCESS: armario.pro",
+            "fb": "SUCCESS: Armario Pro",
+            "ad": "SUCCESS: Armario Pro"
+        }
+    },
+    "accessible_ad_accounts": [
+        "872089658618774 (Blossi Fiore)",
+        "404412405767294 (Sirisha K)",
+        "909595537740488 (Kore Anish Teja)",
+        "1013103236502192 (Digi Carotene)",
+        "2588307994847946 (Malnadu Kitchen)",
+        "1253854223019266 (Knotara)",
+        "1950325455775457 (Raas Academy)",
+        "1433074211213603 (Tecora Restaurant )",
+        "1035923761853197 (Bikanervala Hyderabad)",
+        "1257632322359027 (Kunda Chai)",
+        "3274714602686492 (InstaShoot_By_DC)",
+        "2538545219835753 (Digi Carotene  Academy)",
+        "1845732446345888 (Elham Kindergarten)",
+        "1391138895838746 (Villionare)",
+        "1482599246157906 (BeinngSelf Backend Ad account)"
+    ]
+}

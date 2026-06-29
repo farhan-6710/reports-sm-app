@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Insights Local Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            display: none;
+        }
+        .results.show {
+            display: block;
+        }
+        .test-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+        .test-section.failed {
+            border-left-color: #f44336;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.success {
+            background: #4CAF50;
+            color: white;
+        }
+        .status.failed {
+            background: #f44336;
+            color: white;
+        }
+        .status.testing {
+            background: #ff9800;
+            color: white;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .summary {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .summary h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        .metric {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            padding: 5px 10px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .metric strong {
+            color: #4CAF50;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Instagram Insights Local Test</h1>
+        <p>Test the fixed Instagram Insights API locally</p>
+        
+        <form id="testForm">
+            <div class="form-group">
+                <label for="token">Access Token:</label>
+                <input type="text" id="token" name="token" placeholder="Enter your Instagram access token" required>
+                <small style="color: #666;">Get token from Graph API Explorer</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="account_id">Instagram Account ID:</label>
+                <input type="text" id="account_id" name="account_id" value="17841408769245289" placeholder="e.g., 17841408769245289">
+                <small style="color: #666;">Default: malnadukitchen</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="days">Date Range (days):</label>
+                <select id="days" name="days">
+                    <option value="7">Last 7 days</option>
+                    <option value="14">Last 14 days</option>
+                    <option value="30">Last 30 days</option>
+                    <option value="90">Last 90 days</option>
+                </select>
+            </div>
+            
+            <button type="submit" id="testBtn">Run Tests</button>
+        </form>
+        
+        <div id="results" class="results">
+            <div class="loading" id="loading">Testing... Please wait...</div>
+            <div id="content" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const token = document.getElementById('token').value;
+            const accountId = document.getElementById('account_id').value;
+            const days = document.getElementById('days').value;
+            
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+            const contentDiv = document.getElementById('content');
+            
+            resultsDiv.classList.add('show');
+            loadingDiv.style.display = 'block';
+            contentDiv.style.display = 'none';
+            document.getElementById('testBtn').disabled = true;
+            
+            try {
+                const url = `http://localhost:8000/api/test_instagram_local.php?token=${encodeURIComponent(token)}&account_id=${encodeURIComponent(accountId)}&days=${days}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                loadingDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+                displayResults(data);
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+                contentDiv.innerHTML = `
+                    <div class="test-section failed">
+                        <h3>❌ Error</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                document.getElementById('testBtn').disabled = false;
+            }
+        });
+        
+        function displayResults(data) {
+            const contentDiv = document.getElementById('content');
+            let html = '';
+            
+            // Summary
+            if (data.summary) {
+                html += `
+                    <div class="summary">
+                        <h3>📊 Test Summary</h3>
+                        <p><strong>All Tests Passed:</strong> ${data.summary.all_tests_passed ? '✅ Yes' : '❌ No'}</p>
+                        <p><strong>Has Real Data:</strong> ${data.summary.has_real_data ? '✅ Yes' : '❌ No'}</p>
+                    </div>
+                `;
+            }
+            
+            // Test Results
+            if (data.tests) {
+                Object.keys(data.tests).forEach(testName => {
+                    const test = data.tests[testName];
+                    const statusClass = test.status === 'SUCCESS' ? 'success' : 'failed';
+                    const statusIcon = test.status === 'SUCCESS' ? '✅' : '❌';
+                    
+                    html += `
+                        <div class="test-section ${test.status === 'SUCCESS' ? '' : 'failed'}">
+                            <h3>${statusIcon} ${testName.replace(/_/g, ' ').toUpperCase()}</h3>
+                            <span class="status ${statusClass}">${test.status}</span>
+                            
+                            ${test.error ? `<p style="color: #f44336;"><strong>Error:</strong> ${test.error}</p>` : ''}
+                            
+                            ${test.data ? `
+                                <details style="margin-top: 10px;">
+                                    <summary style="cursor: pointer; color: #1976d2;">View Data</summary>
+                                    <pre>${JSON.stringify(test.data, null, 2)}</pre>
+                                </details>
+                            ` : ''}
+                            
+                            ${test.metrics_summary ? `
+                                <div style="margin-top: 10px;">
+                                    <strong>Metrics:</strong><br>
+                                    ${Object.keys(test.metrics_summary).map(key => 
+                                        `<span class="metric"><strong>${key}:</strong> ${test.metrics_summary[key]}</span>`
+                                    ).join('')}
+                                </div>
+                            ` : ''}
+                            
+                            ${test.organic ? `
+                                <div style="margin-top: 10px;">
+                                    <strong>Organic Metrics:</strong><br>
+                                    ${Object.keys(test.organic).map(key => 
+                                        `<span class="metric"><strong>${key}:</strong> ${test.organic[key] ?? 'null'}</span>`
+                                    ).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+            }
+            
+            // Full JSON
+            html += `
+                <div class="test-section">
+                    <h3>📄 Full Response</h3>
+                    <details>
+                        <summary style="cursor: pointer; color: #1976d2;">View Raw JSON</summary>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </details>
+                </div>
+            `;
+            
+            contentDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

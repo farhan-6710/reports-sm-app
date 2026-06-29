@@ -1,0 +1,16 @@
+{
+    "name": "social-media-analytics/backend",
+    "description": "Social Media Analytics API Backend",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "classmap": [
+            "config/",
+            "services/",
+            "middleware/"
+        ]
+    }
+}
+

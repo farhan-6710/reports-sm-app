@@ -1,0 +1,8 @@
+platform,account_name,account_id,access_token,handle
+facebook,Client A - Facebook Page,123456789,EAAA...,ClientAPage
+instagram,Client A - Instagram,17841405309211844,EAAA...,@clienta
+facebook,Client B - Restaurant,987654321,EAAA...,RestaurantB
+instagram,Client B - IG Business,17841405309211845,EAAA...,@restaurantb
+facebook,Client C - Brand,555666777,EAAA...,BrandCPage
+youtube,Client D - YouTube,UCxxxxxxxxxx,ya29...,ClientDChannel
+

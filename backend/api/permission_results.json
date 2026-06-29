@@ -1,0 +1,120 @@
+{
+    "permissions": [
+        "email",
+        "manage_fundraisers",
+        "read_insights",
+        "publish_video",
+        "catalog_management",
+        "private_computation_access",
+        "threads_business_basic",
+        "pages_manage_cta",
+        "pages_manage_instant_articles",
+        "pages_show_list",
+        "read_page_mailboxes",
+        "ads_management",
+        "ads_read",
+        "business_management",
+        "pages_messaging",
+        "pages_messaging_phone_number",
+        "pages_messaging_subscriptions",
+        "instagram_basic",
+        "instagram_manage_comments",
+        "instagram_manage_insights",
+        "instagram_content_publish",
+        "leads_retrieval",
+        "whatsapp_business_management",
+        "instagram_manage_messages",
+        "attribution_read",
+        "page_events",
+        "commerce_account_read_settings",
+        "commerce_account_manage_orders",
+        "commerce_account_read_orders",
+        "commerce_account_read_reports",
+        "pages_read_engagement",
+        "pages_manage_metadata",
+        "pages_read_user_content",
+        "pages_manage_ads",
+        "pages_manage_posts",
+        "pages_manage_engagement",
+        "whatsapp_business_messaging",
+        "instagram_shopping_tag_products",
+        "instagram_branded_content_brand",
+        "instagram_branded_content_creator",
+        "instagram_branded_content_ads_brand",
+        "instagram_manage_events",
+        "instagram_manage_upcoming_events",
+        "manage_app_solution",
+        "pages_utility_messaging",
+        "paid_marketing_messages",
+        "whatsapp_business_manage_events",
+        "instagram_creator_marketplace_discovery",
+        "facebook_creator_marketplace_discovery",
+        "public_profile"
+    ],
+    "problematic_account": {
+        "error": "Facebook API Error: (#200) Ad account owner has NOT grant ads_management or ads_read permission, refer to https:\/\/developers.facebook.com\/docs\/marketing-api\/get-started\/authorization\/#permissions-and-features for details."
+    },
+    "accessible_accounts": [
+        {
+            "id": "872089658618774",
+            "name": "Blossi Fiore"
+        },
+        {
+            "id": "404412405767294",
+            "name": "Sirisha K"
+        },
+        {
+            "id": "909595537740488",
+            "name": "Kore Anish Teja"
+        },
+        {
+            "id": "1013103236502192",
+            "name": "Digi Carotene"
+        },
+        {
+            "id": "2588307994847946",
+            "name": "Malnadu Kitchen"
+        },
+        {
+            "id": "1253854223019266",
+            "name": "Knotara"
+        },
+        {
+            "id": "1950325455775457",
+            "name": "Raas Academy"
+        },
+        {
+            "id": "1433074211213603",
+            "name": "Tecora Restaurant "
+        },
+        {
+            "id": "1035923761853197",
+            "name": "Bikanervala Hyderabad"
+        },
+        {
+            "id": "1257632322359027",
+            "name": "Kunda Chai"
+        },
+        {
+            "id": "3274714602686492",
+            "name": "InstaShoot_By_DC"
+        },
+        {
+            "id": "2538545219835753",
+            "name": "Digi Carotene  Academy"
+        },
+        {
+            "id": "1845732446345888",
+            "name": "Elham Kindergarten"
+        },
+        {
+            "id": "1391138895838746",
+            "name": "Villionare"
+        },
+        {
+            "id": "1482599246157906",
+            "name": "BeinngSelf Backend Ad account"
+        }
+    ],
+    "is_problem_account_accessible": false
+}
